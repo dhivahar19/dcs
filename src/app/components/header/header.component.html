@@ -1,0 +1,11 @@
+<nav class="navbar py-0">
+<div class="container-fluid bg-color">
+    <a class="navbar-brand" href="#">
+    <img src="assets/images/dcs-logo.jpeg" alt="dcs-logo"  height="80">
+    </a>
+    <div class="d-flex align-items-center">
+         <div class="pe-2" *ngIf="(user$ | async); let user" >Hello, <span>{{user.loggedInUser}}</span></div>  
+         <a class="btn btn-dark logout" (click)="logout()">Logout</a>   
+    </div>
+</div>
+</nav>

@@ -1,0 +1,44 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <p-table 
+      #dt
+      [value]="(cdrData$ | async)!"  
+      [rowHover]="true"
+      [paginator]="true" [rows]="10"
+      [rowsPerPageOptions]="[5,10,20,50]"
+      [showCurrentPageReport]="true" 
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      [style]="{width:'auto'}"
+      styleClass="p-datatable-gridlines"
+      [globalFilterFields]="['vehicleId']"
+      >
+        <ng-template pTemplate="caption">
+          <div class="d-flex align-items-center">
+              <h3 class="me-2 ">Charging Data</h3>
+              <span class="p-input-icon-left ml-auto">
+                  <i class="pi pi-search"></i>
+                  <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')" placeholder="Search keyword" />
+              </span>
+          </div>
+        </ng-template>     
+        <ng-template pTemplate="header">
+            <tr>
+                <th >Vehicle ID </th>
+                <th pSortableColumn="startTime">Start Time <p-sortIcon field="startTime"></p-sortIcon></th>
+                <th pSortableColumn="endTime">End Time <p-sortIcon field="endTime"></p-sortIcon></th>
+                <th pSortableColumn="totalCost">Total Cost <p-sortIcon field="totalCost"></p-sortIcon></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-cdrData>
+            <tr>
+                <td>{{cdrData.vehicleId}}</td>
+                <td>{{cdrData.startTime | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+                <td>{{cdrData.endTime | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+                <td>{{cdrData.totalCost}}</td>
+            </tr>
+        </ng-template>
+      </p-table>
+    </div>
+</div>
