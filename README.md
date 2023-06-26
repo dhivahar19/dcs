@@ -1,12 +1,9 @@
 ## Introduction
 
-As an e-mobility charging solutions platform, we would like to provide an Angular App that is
-capable of managing Charge Data Records (CDR) in real time to a network of Charge Point
+As an e-mobility charging solutions platform, capable of managing Charge Data Records (CDR) in real time to a network of Charge Point
 Operators (CPO).
-CDR ("Charge Data Record") is a data structure that is generated for every charging process of
-vehicles". ,
-CPO ("Charge Point Operator") is a legal entity/company that operates one or multiple charge
-points.
+CDR ("Charge Data Record") is a data structure that is generated for every charging process of vehicles". ,
+CPO ("Charge Point Operator") is a legal entity/company that operates one or multiple charge points.
 
 ## Getting started
 
